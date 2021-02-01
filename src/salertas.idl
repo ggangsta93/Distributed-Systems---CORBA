@@ -1,0 +1,33 @@
+module servidorAlertas{
+    module sop_corba{
+        interface ClienteCallbackInt;
+
+        interface GesAsintomaticosInt{
+            struct ClsAsintomaticoDTO{
+                string nombres;
+                string apellidos;
+                string tipo_id;
+                long id;
+                string direccion;
+            };
+
+            struct ClsIndicadoresDTO{
+                string tipo_id;
+                long id;
+                float frecuenciaCardiaca;
+                float frecuenciaRespiratoria;
+                float temperatura;
+            };
+            boolean registrarAsintomatico(in ClsAsintomaticoDTO objAsin,in ClienteCallbackInt objCliente);
+	    boolean modificarAsintomatico(in ClsAsintomaticoDTO objAsin,in string old_tipo_id,in long old_id);
+            boolean enviarIndicadores(in ClsIndicadoresDTO objIndi);
+            long consultarRegPermitidos();
+            boolean cambiarRegPermitidos(in long cantidad);
+        };
+        
+        interface ClienteCallbackInt{
+             	void notificar(in string mensaje);    
+        };
+        
+    };
+};

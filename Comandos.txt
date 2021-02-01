@@ -1,0 +1,10 @@
+Compilacion en src
+javac -d ../bin servidorNotificaciones/*.java
+javac -d ../bin servidorAlertas/*.java
+javac -d ../bin cliente/*.java
+
+
+Ejecucion en bin
+java servidorNotificaciones.ServidorDeObjetos
+java -cp "../mysql-connector-java-5.1.5-bin.jar;." servidorAlertas.ServidorDeObjetos
+java cliente.ClienteDeObjetos

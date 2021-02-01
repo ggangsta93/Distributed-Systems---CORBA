@@ -1,0 +1,31 @@
+module servidorNotificaciones{
+    module sop_corba{
+        interface NotificacionesInt{
+            struct ClsAsintomaticoDTO{
+                string nombres;
+                string apellidos;
+                string tipo_id;
+                long id;
+                string direccion;
+            };
+            struct ClsAlertaDTO{
+                string fecha;
+                string hora;
+                long puntuacion;
+            };
+            struct ClsUltimoIndicadorDTO{
+                float frecuenciaCardiaca;
+                float frecuenciaRespiratoria;
+                float temperatura;
+            };
+
+            struct ClsNotificacionDTO{
+                ClsAsintomaticoDTO asintomatico;
+                ClsUltimoIndicadorDTO ultimoIndicador;
+                ClsAlertaDTO alerta[5];
+            };
+
+            void notificarRegistro(in ClsNotificacionDTO objNotificacion);
+        };
+    };
+};
